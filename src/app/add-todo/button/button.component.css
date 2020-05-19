@@ -1,0 +1,27 @@
+/* div{
+    width: 8em;
+    padding: .5em .3em;
+    background-color: grey;
+} */
+
+.btnAdd{
+    display: inline-block;
+    position: absolute;
+    top: 0; right: 0;
+    width: 4em;
+    height: 4em;
+    line-height: 4em;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1.5em;
+    margin-left: -3em;
+    border-radius: 100%;
+    background: aquamarine;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.btnAdd:focus, .btnAdd:hover{
+    box-shadow: 2px 2px 5px 4px #7FDDC4;
+}

@@ -1,0 +1,22 @@
+.removeTodo{
+    display: inline-block;
+    float: right;
+    width: 2em;
+    text-align: center;
+    /* vertical-align: middle; */
+    /* line-height: 3em; */
+    /* border: 1px solid orange; */
+    box-sizing: border-box;
+}
+.removeTodo:hover{
+    cursor: pointer;
+}
+.removeTodo i{
+    color: #FF7E7E;
+}
+.removeTodo:hover i{
+    color: #FF5E5E;
+}
+.total{
+    line-height: 3em;
+}

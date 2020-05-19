@@ -1,0 +1,7 @@
+<div class="addTodo">
+    <input #newTodo type="text" tabindex="1" autofocus placeholder="add new todo ..."
+    (keyup.enter)="this.callAddTodo.emit(newTodo.value)">
+    <app-button
+        (confirmAddTodo)="this.callAddTodo.emit(newTodo.value)">
+    </app-button>
+</div>
