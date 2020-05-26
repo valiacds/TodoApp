@@ -10,8 +10,7 @@ export class TodoItemComponent {
 
   @Input() todoName;
   @Input() todoIndex;
-  @Output() callToDelete = new EventEmitter();
-
+  
   constructor(private _todoServes:TodoServesService) {
   }
 

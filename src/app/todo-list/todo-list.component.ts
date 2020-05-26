@@ -18,12 +18,12 @@ export class TodoListComponent {
     this.todos = this._todoServes.getTodos();
   }
 
-  addTodo(todoTitle: string) {
-    this.todos.push({
-      'name': todoTitle,
-      'complete': false
-    });
-  }
+  // addTodo(todoTitle: string) {
+  //   this.todos.push({
+  //     'name': todoTitle,
+  //     'complete': false
+  //   });
+  // }
   
   toggleComplete(todoTitle: string){
     let arrIdx = this.todos.findIndex(todo => todo.name === todoTitle);
