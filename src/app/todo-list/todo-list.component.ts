@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoServesService } from '../todo-serves.service';
 
 @Component({
   selector: 'appTodoList',
@@ -7,24 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoListComponent {
 
-  todos = [
-    {
-      'name': 'Todo Item 1',
-      'complete': false
-    },
-    {
-      'name': 'Todo Item 2',
-      'complete': true
-    },
-    {
-      'name': 'Todo Item 3',
-      'complete': true
-    },
-    {
-      'name': 'Todo Item 4',
-      'complete': false
-    }
-  ]
+  todos = [];
+
+  constructor(private _todoServes:TodoServesService) {
+    this.todos = this._todoServes.getTodos();
+  }
+
+  OnInit() {
+    this.todos = this._todoServes.getTodos();
+  }
 
   addTodo(todoTitle: string) {
     this.todos.push({
@@ -32,17 +24,9 @@ export class TodoListComponent {
       'complete': false
     });
   }
-
-  removeTodo(idx) {
-    this.todos.splice(idx, 1);
-  }
-
+  
   toggleComplete(todoTitle: string){
     let arrIdx = this.todos.findIndex(todo => todo.name === todoTitle);
     this.todos[arrIdx].complete = !this.todos[arrIdx].complete;
-  }
-
-  somethingIsClicked() {
-    console.log
   }
 }

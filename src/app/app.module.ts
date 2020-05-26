@@ -33,7 +33,6 @@ import { ChildComponent } from './child/child.component';
     DataBindingComponent,
     ParentComponent,
     ChildComponent,
-
   ],
   imports: [
     BrowserModule,
