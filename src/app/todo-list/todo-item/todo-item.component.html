@@ -1,6 +1,11 @@
 <div>
-    <span>{{todoName}}</span>
-    <div class="removeTodo" (click)="removeTodo(todoIndex)"><i class="far fa-trash-alt"></i></div>
+    <span>{{todoObj.name}}</span>
+    <span class="todoButtons">
+        <span class="editTodo">
+            <a routerLink="/todo/{{todoObj.id}}"><i class="fas fa-pencil-alt"></i></a>
+        </span>    
+        <span class="removeTodo" (click)="removeTodo(todoIndex)"><i class="far fa-trash-alt"></i></span>
+    </span>
 </div>
 
 

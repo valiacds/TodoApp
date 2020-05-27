@@ -8,8 +8,8 @@ import { TodoServesService } from 'src/app/todo-serves.service';
 })
 export class TodoItemComponent {
 
-  @Input() todoName;
   @Input() todoIndex;
+  @Input() todoObj;
   
   constructor(private _todoServes:TodoServesService) {
   }

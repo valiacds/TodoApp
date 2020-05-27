@@ -1,14 +1,19 @@
-.removeTodo{
-    display: inline-block;
+.todoButtons{
     float: right;
+}
+.editTodo, .removeTodo{
+    display: inline-block;
     width: 2em;
     text-align: center;
-    /* vertical-align: middle; */
-    /* line-height: 3em; */
-    /* border: 1px solid orange; */
     box-sizing: border-box;
 }
-.removeTodo:hover{
+.editTodo{
+    float: left;
+}
+.removeTodo{
+    float: right;
+}
+.editTodo:hover, .removeTodo:hover{
     cursor: pointer;
 }
 .removeTodo i{
@@ -16,6 +21,12 @@
 }
 .removeTodo:hover i{
     color: #FF5E5E;
+}
+.editTodo i{
+    color: #7FFFD4;
+}
+.editTodo:hover i{
+    color: #7FFFD4;
 }
 .total{
     line-height: 3em;
