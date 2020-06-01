@@ -4,20 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TodoHeaderComponent } from './todo-header/todo-header.component';
-import { AddTodoComponent } from './add-todo/add-todo.component';
-import { ButtonComponent } from './add-todo/button/button.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
-import { TodoItemComponent } from './todo-list/todo-item/todo-item.component';
-import { TestCompComponent } from './test-comp/test-comp.component';
+import { AddTodoComponent } from './todos/todo-list/add-todo/add-todo.component';
+import { ButtonComponent } from './todos/todo-list/add-todo/button/button.component';
+import { TodoListComponent } from './todos/todo-list/todo-list.component';
+import { TodoItemComponent } from './todos/todo-list/todo-item/todo-item.component';
 import { ChangeContentDirective } from './directives/change-content.directive';
 import { TodoCompletedDirective } from './directives/todo-completed.directive';
 import { TotalItemsComponent } from './total-items/total-items.component';
-import { FancyQuotePipe } from './pipes/fancy-quote.pipe';
 import { DataBindingComponent } from './data-binding/data-binding.component';
-import { ParentComponent } from './parent/parent.component';
-import { ChildComponent } from './child/child.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
+import { TodosComponent } from './todos/todos.component';
 
 @NgModule({
   declarations: [
@@ -27,15 +24,12 @@ import { TodoDetailsComponent } from './todo-details/todo-details.component';
     ButtonComponent,
     TodoListComponent,
     TodoItemComponent,
-    TestCompComponent,
     ChangeContentDirective,
     TodoCompletedDirective,
     TotalItemsComponent,
-    FancyQuotePipe,
     DataBindingComponent,
-    ParentComponent,
-    ChildComponent,
     TodoDetailsComponent,
+    TodosComponent,
   ],
   imports: [
     BrowserModule,

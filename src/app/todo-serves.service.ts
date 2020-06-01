@@ -45,5 +45,9 @@ export class TodoServesService {
   removeTodo(idx) {
     this.todos.splice(idx, 1);
   }
+
+  toggleComplete(idx){
+    this.todos[idx].complete = !this.todos[idx].complete;
+  }
   
 }

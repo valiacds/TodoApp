@@ -16,6 +16,10 @@ export class TodoItemComponent {
 
   removeTodo(idx) {
     this._todoServes.removeTodo(idx);
- }
+  }
+
+  toggleComplete(idx) {
+    this._todoServes.toggleComplete(idx);
+  }
 
 }

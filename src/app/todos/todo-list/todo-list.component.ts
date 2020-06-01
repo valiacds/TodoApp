@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoServesService } from '../todo-serves.service';
+import { TodoServesService } from 'src/app/todo-serves.service';
 
 @Component({
   selector: 'appTodoList',
@@ -16,10 +16,5 @@ export class TodoListComponent {
 
   OnInit() {
     this.todos = this._todoServes.getTodos();
-  }
-
-  toggleComplete(todoTitle: string){
-    let arrIdx = this.todos.findIndex(todo => todo.name === todoTitle);
-    this.todos[arrIdx].complete = !this.todos[arrIdx].complete;
   }
 }
