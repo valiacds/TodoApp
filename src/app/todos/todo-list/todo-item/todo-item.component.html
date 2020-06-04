@@ -1,5 +1,5 @@
 <div>
-    <span (click)="toggleComplete(todoIndex)">{{todoObj.name}}</span>
+    <span (click)="toggleComplete(todoIndex)">{{todoObj.title}}</span>
     <span class="todoButtons">
         <span class="editTodo">
             <a [routerLink]="['/todo/',todoObj.id]" routerLinkActive="activeLink"><i class="fas fa-pencil-alt"></i></a>

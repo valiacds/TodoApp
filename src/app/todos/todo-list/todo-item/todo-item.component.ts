@@ -11,8 +11,7 @@ export class TodoItemComponent {
   @Input() todoIndex;
   @Input() todoObj;
   
-  constructor(private _todoServes:TodoServesService) {
-  }
+  constructor(private _todoServes:TodoServesService) {}
 
   removeTodo(idx) {
     this._todoServes.removeTodo(idx);

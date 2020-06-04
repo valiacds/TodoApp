@@ -1,44 +1,39 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { Observable } from 'rxjs';
+
+export interface TodoInterface {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+}
 
 @Injectable({
   'providedIn': 'root'
 })
 
 export class TodoServesService {
-  todos = [
-    {
-      'id': 1,
-      'name': 'Todo Item 1',
-      'complete': false
-    },
-    {
-      'id': 2,
-      'name': 'Todo Item 2',
-      'complete': true
-    },
-    {
-      'id': 3,
-      'name': 'Todo Item 3',
-      'complete': true
-    },
-    {
-      'id': 4,
-      'name': 'Todo Item 4',
-      'complete': false
-    }
-  ];
 
-  constructor() { }
+  todos: TodoInterface[] = [];
+  todosURL = 'http://my-json-server.typicode.com/valiacds/JSON-fake-server/todos';
+    
+  constructor( private http:HttpClient ) {}
 
-  getTodos() {
-    return this.todos;
+  fetchTodos():Observable<TodoInterface[]> {
+    return this.http.get<TodoInterface[]>(this.todosURL);
   }
 
+  initTodos(todoList: TodoInterface[]) {
+    this.todos = todoList;
+  }
+  
   addTodo(todoTitle: string) {
     this.todos.push({
+      'userId': 1,
       'id': this.todos.length + 1,
-      'name': todoTitle,
-      'complete': false
+      'title': todoTitle,
+      'completed': false
     });
   }
 
@@ -47,7 +42,6 @@ export class TodoServesService {
   }
 
   toggleComplete(idx){
-    this.todos[idx].complete = !this.todos[idx].complete;
+    this.todos[idx].completed = !this.todos[idx].completed;
   }
-  
 }
