@@ -11,7 +11,7 @@ import { TodoInterface } from 'src/app/todo';
 export class TodoServesService {
 
   todos:TodoInterface[] = [];
-  todosURL = 'http://my-json-server.typicode.com/@@valiacds/JSON-fake-server/todos';
+  todosURL = 'http://my-json-server.typicode.com/valiacds/JSON-fake-server/todos';
     
   constructor( private http:HttpClient ) {}
 
