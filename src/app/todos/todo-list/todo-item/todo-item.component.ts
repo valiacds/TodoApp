@@ -1,5 +1,6 @@
 import { Component, Input, Output,  EventEmitter} from '@angular/core';
 import { TodoServesService } from 'src/app/todo-serves.service';
+import { TodoInterface } from 'src/app/todo';
 
 @Component({
   selector: 'appTodoItem',
@@ -9,7 +10,7 @@ import { TodoServesService } from 'src/app/todo-serves.service';
 export class TodoItemComponent {
 
   @Input() todoIndex;
-  @Input() todoObj;
+  @Input() todoObj:TodoInterface;
   
   constructor(private _todoServes:TodoServesService) {}
 

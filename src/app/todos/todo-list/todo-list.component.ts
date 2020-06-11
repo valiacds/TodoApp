@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoServesService } from 'src/app/todo-serves.service';
-import { TodoInterface } from 'src/app/todo-serves.service';
+import { TodoInterface } from 'src/app/todo';
 
 @Component({
   selector: 'appTodoList',
@@ -9,9 +9,11 @@ import { TodoInterface } from 'src/app/todo-serves.service';
 })
 export class TodoListComponent {
 
-  todos: TodoInterface[] = [];
+  todos:TodoInterface[] = [];
 
-  constructor(private _todoServes:TodoServesService) {
+  constructor(private _todoServes:TodoServesService) {}
+
+  ngOnInit() {
     this._todoServes.fetchTodos().subscribe( data => {
       this.todos = data;
       this._todoServes.initTodos(this.todos);

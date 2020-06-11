@@ -11,6 +11,8 @@ export class AddTodoComponent {
   }
 
   addTodo(todoTitle: string) {
-    this._todoServes.addTodo(todoTitle);
- }
+    this._todoServes.addTodo(todoTitle).subscribe(
+      resp => console.log(resp)
+    )
+  }
 }
