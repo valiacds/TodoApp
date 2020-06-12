@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoInterface } from 'src/app/todo';
 
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.css']
 })
-export class TodosComponent implements OnInit {
+export class TodosComponent {
+  todos:TodoInterface[] = [];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  refreshList(todosList) {
+    this.todos = todosList;
   }
-
 }

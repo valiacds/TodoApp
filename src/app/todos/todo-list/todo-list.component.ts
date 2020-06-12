@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { TodoServesService } from 'src/app/todo-serves.service';
 import { TodoInterface } from 'src/app/todo';
 
@@ -8,15 +8,35 @@ import { TodoInterface } from 'src/app/todo';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent {
+  @Input('todosData') todos;
+  @Output() refreshList = new EventEmitter();
 
-  todos:TodoInterface[] = [];
-
-  constructor(private _todoServes:TodoServesService) {}
+  constructor(private todoServes:TodoServesService) {}
 
   ngOnInit() {
-    this._todoServes.fetchTodos().subscribe( data => {
+    this.todoServes.getTodos().subscribe( data => {
       this.todos = data;
-      this._todoServes.initTodos(this.todos);
+      this.refreshList.emit(this.todos);
     });
+  }
+
+  todoAdd(todo:TodoInterface) {
+    this.todoServes.addTodo(todo).subscribe( data => {
+      todo.id = data['id'];
+    });
+    this.todos = [...this.todos, todo];
+    this.refreshList.emit(this.todos);
+  }
+
+  todoComplete(idx: number){
+    this.todos[idx].completed = !this.todos[idx].completed;
+    this.todoServes.updateTodo(this.todos[idx]).subscribe();
+    this.refreshList.emit(this.todos);
+  }
+
+  todoRemove(idx: number){
+    this.todoServes.removeTodo(this.todos[idx].id).subscribe();
+    this.todos.splice(idx, 1);
+    this.refreshList.emit(this.todos);
   }
 }

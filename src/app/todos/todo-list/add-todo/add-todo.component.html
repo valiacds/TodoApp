@@ -1,7 +1,7 @@
 <div class="addTodo">
     <input #newTodo type="text" tabindex="1" autofocus placeholder="add new todo ..."
-    (keyup.enter)="addTodo(newTodo.value)">
+    (keyup.enter)="addTodo(newTodo)">
     <app-button
-        (confirmAddTodo)="addTodo(newTodo.value)">
+        (confirmAddTodo)="addTodo(newTodo)">
     </app-button>
 </div>

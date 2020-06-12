@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { TodoServesService } from 'src/app/todo-serves.service';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { TodoInterface } from 'src/app/todo';
 
 @Component({
   selector: 'appAddTodo',
@@ -7,12 +7,17 @@ import { TodoServesService } from 'src/app/todo-serves.service';
   styleUrls: ['./add-todo.component.css']
 })
 export class AddTodoComponent {
-  constructor(private _todoServes:TodoServesService) {
-  }
+  @Output() todoAdd = new EventEmitter();
 
-  addTodo(todoTitle: string) {
-    this._todoServes.addTodo(todoTitle).subscribe(
-      resp => console.log(resp)
-    )
+  constructor() {}
+
+  addTodo(todo) {
+    const newTodo:TodoInterface = {
+      'title': todo.value,
+      'completed': false
+    }
+
+    todo.value = '';
+    this.todoAdd.emit(newTodo);
   }
 }

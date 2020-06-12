@@ -1,5 +1,4 @@
 import { Component, Input, Output,  EventEmitter} from '@angular/core';
-import { TodoServesService } from 'src/app/todo-serves.service';
 import { TodoInterface } from 'src/app/todo';
 
 @Component({
@@ -8,18 +7,18 @@ import { TodoInterface } from 'src/app/todo';
   styleUrls: ['./todo-item.component.css']
 })
 export class TodoItemComponent {
-
   @Input() todoIndex;
   @Input() todoObj:TodoInterface;
-  
-  constructor(private _todoServes:TodoServesService) {}
+  @Output() todoComplete = new EventEmitter();
+  @Output() todoRemove = new EventEmitter();
+    
+  constructor() {}
 
-  removeTodo(idx) {
-    this._todoServes.removeTodo(idx);
+  removeTodo(idx: number) {
+    this.todoRemove.emit(idx);
   }
 
-  toggleComplete(idx) {
-    this._todoServes.toggleComplete(idx);
+  completeTodo(idx: number) {
+    this.todoComplete.emit(idx);
   }
-
 }
