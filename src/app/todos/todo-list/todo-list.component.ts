@@ -23,20 +23,22 @@ export class TodoListComponent {
   todoAdd(todo:TodoInterface) {
     this.todoServes.addTodo(todo).subscribe( data => {
       todo.id = data['id'];
+      this.todos = [...this.todos, todo];
+      this.refreshList.emit(this.todos);
     });
-    this.todos = [...this.todos, todo];
-    this.refreshList.emit(this.todos);
   }
 
   todoComplete(idx: number){
     this.todos[idx].completed = !this.todos[idx].completed;
-    this.todoServes.updateTodo(this.todos[idx]).subscribe();
-    this.refreshList.emit(this.todos);
+    this.todoServes.updateTodo(this.todos[idx]).subscribe( data => {
+      this.refreshList.emit(this.todos);
+    });
   }
 
   todoRemove(idx: number){
-    this.todoServes.removeTodo(this.todos[idx].id).subscribe();
-    this.todos.splice(idx, 1);
-    this.refreshList.emit(this.todos);
+    this.todoServes.removeTodo(this.todos[idx].id).subscribe( data => {
+      this.todos.splice(idx, 1);
+      this.refreshList.emit(this.todos);
+    });
   }
 }
